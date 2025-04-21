@@ -27,49 +27,15 @@
   overflow: hidden;
   flex-direction: column;
   text-align: center;
+  cursor: pointer; /* שיהיה קל ללחוץ על הרקע כדי לסגור */
 }
 
 .fullscreen-modal img {
-  max-width: 90%;
-  max-height: 80%;
+  max-width: 80%;  /* התמונה תגדל ל-80% מהמסך */
+  max-height: 80%; /* גובה התמונה יהיה גם ב-80% */
   object-fit: contain;
-  margin: 20px 0;
 }
 
-.fullscreen-modal .close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 2000;
-}
-
-.fullscreen-modal .arrow {
-  position: absolute;
-  top: 50%;
-  color: white;
-  font-size: 3rem;
-  cursor: pointer;
-  z-index: 2000;
-  transform: translateY(-50%);
-}
-
-.fullscreen-modal .arrow.left {
-  left: 10px;
-}
-
-.fullscreen-modal .arrow.right {
-  right: 10px;
-}
-
-.fullscreen-modal .text {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  z-index: 2000;
+.fullscreen-modal .modal-content {
+  cursor: auto; /* תמנע לחיצה לא מכוונת על התמונה */
 }
