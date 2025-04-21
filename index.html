@@ -3,68 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Liraz Vana – Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Liraz Vana Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
   <header>
-    <h1>Liraz Vana – 3D Portfolio</h1>
-    <p>Selected Projects</p>
+    <h1>Liraz Vana</h1>
+    <p>3D Environment Artist</p>
   </header>
 
-  <main class="gallery">
-    <div class="project" data-img="assets/wasteland-vehicle/WastelandVehicle1.jpg" data-title="Wasteland Vehicle">
-      <img src="assets/wasteland-vehicle/WastelandVehicle1.jpg" alt="Wasteland Vehicle" />
-      <div class="overlay">Wasteland Vehicle</div>
-    </div>
-    <div class="project" data-img="assets/gnome-shop/GnomeShop3.jpg" data-title="Gnome Shop">
-      <img src="assets/gnome-shop/GnomeShop3.jpg" alt="Gnome Shop" />
+  <div class="gallery">
+    <div class="project" ondblclick="openLightbox('assets/gnome-shop/image.jpg', 'Gnome Shop')">
+      <img src="assets/gnome-shop/image.jpg" alt="Gnome Shop">
       <div class="overlay">Gnome Shop</div>
     </div>
-    <div class="project" data-img="assets/magic-shop/MagicShop1.jpg" data-title="Magic Shop">
-      <img src="assets/magic-shop/MagicShop1.jpg" alt="Magic Shop" />
+    <div class="project" ondblclick="openLightbox('assets/magic-shop/image.jpg', 'Magic Shop')">
+      <img src="assets/magic-shop/image.jpg" alt="Magic Shop">
       <div class="overlay">Magic Shop</div>
     </div>
-    <div class="project" data-img="assets/oak/Oak1.jpg" data-title="Oak">
-      <img src="assets/oak/Oak1.jpg" alt="Oak" />
-      <div class="overlay">Oak</div>
-    </div>
-    <div class="project" data-img="assets/memoryscape/Memoryscape1.jpg" data-title="Memoryscape">
-      <img src="assets/memoryscape/Memoryscape1.jpg" alt="Memoryscape" />
+    <div class="project" ondblclick="openLightbox('assets/memoryscape/image.jpg', 'Memoryscape')">
+      <img src="assets/memoryscape/image.jpg" alt="Memoryscape">
       <div class="overlay">Memoryscape</div>
     </div>
-  </main>
+    <div class="project" ondblclick="openLightbox('assets/oak/image.jpg', 'Oak')">
+      <img src="assets/oak/image.jpg" alt="Oak">
+      <div class="overlay">Oak</div>
+    </div>
+    <div class="project" ondblclick="openLightbox('assets/wasteland-vehicle/image.jpg', 'Wasteland Vehicle')">
+      <img src="assets/wasteland-vehicle/image.jpg" alt="Wasteland Vehicle">
+      <div class="overlay">Wasteland Vehicle</div>
+    </div>
+  </div>
 
-  <div id="lightbox" class="hidden">
+  <!-- Lightbox -->
+  <div id="lightbox" class="hidden" onclick="closeLightbox()">
     <div class="lightbox-content">
-      <img src="" alt="Enlarged Project" />
-      <div class="lightbox-caption"></div>
+      <img id="lightbox-img" src="" alt="Enlarged Project">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
   </div>
 
   <script>
-    const projects = document.querySelectorAll('.project');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
-    const caption = lightbox.querySelector('.lightbox-caption');
+    function openLightbox(imageUrl, captionText) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      img.src = imageUrl;
+      caption.textContent = captionText;
+      lightbox.classList.remove('hidden');
+    }
 
-    projects.forEach(project => {
-      project.addEventListener('dblclick', () => {
-        const imgSrc = project.getAttribute('data-img');
-        const title = project.getAttribute('data-title');
-        lightboxImg.src = imgSrc;
-        caption.textContent = title;
-        lightbox.classList.remove('hidden');
-      });
-    });
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.add('hidden');
-        lightboxImg.src = '';
-        caption.textContent = '';
-      }
-    });
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.add('hidden');
+      document.getElementById('lightbox-img').src = '';
+      document.getElementById('lightbox-caption').textContent = '';
+    }
   </script>
+
 </body>
 </html>
