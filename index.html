@@ -9,55 +9,54 @@
 <body>
   <header>
     <h1>Liraz Vana – 3D Portfolio</h1>
-    <p>Double click on a project to view</p>
+    <p>Selected Projects</p>
   </header>
 
   <main class="gallery">
-    <div class="project" ondblclick="openModal(0)">
+    <div class="project">
       <img src="assets/wasteland-vehicle/WastelandVehicle1.jpg" alt="Wasteland Vehicle" />
-      <h2>Wasteland Vehicle</h2>
+      <div class="caption">Wasteland Vehicle</div>
     </div>
-    <div class="project" ondblclick="openModal(1)">
+    <div class="project">
       <img src="assets/gnome-shop/GnomeShop3.jpg" alt="Gnome Shop" />
-      <h2>Gnome Shop</h2>
+      <div class="caption">Gnome Shop</div>
     </div>
-    <div class="project" ondblclick="openModal(2)">
+    <div class="project">
       <img src="assets/magic-shop/MagicShop1.jpg" alt="Magic Shop" />
-      <h2>Magic Shop</h2>
+      <div class="caption">Magic Shop</div>
     </div>
-    <div class="project" ondblclick="openModal(3)">
-      <img src="assets/oak/Oak1.jpg" alt="Oak Project" />
-      <h2>Oak Project</h2>
+    <div class="project">
+      <img src="assets/oak/Oak1.jpg" alt="Oak" />
+      <div class="caption">Oak</div>
     </div>
-    <div class="project" ondblclick="openModal(4)">
+    <div class="project">
       <img src="assets/memoryscape/Memoryscape1.jpg" alt="Memoryscape" />
-      <h2>Memoryscape</h2>
+      <div class="caption">Memoryscape</div>
     </div>
   </main>
 
-  <div id="fullscreen-modal" class="fullscreen-modal" onclick="closeModal()">
-    <img id="fullscreen-image" src="" alt="Fullscreen View">
+  <div class="overlay" id="overlay">
+    <img id="overlay-img" src="" alt="Enlarged" />
+    <p class="double-click-hint">לחיצה על הרקע תסגור</p>
   </div>
 
   <script>
-    const projects = [
-      { images: ['assets/wasteland-vehicle/WastelandVehicle1.jpg'] },
-      { images: ['assets/gnome-shop/GnomeShop3.jpg'] },
-      { images: ['assets/magic-shop/MagicShop1.jpg'] },
-      { images: ['assets/oak/Oak1.jpg'] },
-      { images: ['assets/memoryscape/Memoryscape1.jpg'] },
-    ];
+    const projects = document.querySelectorAll('.project img');
+    const overlay = document.getElementById('overlay');
+    const overlayImg = document.getElementById('overlay-img');
 
-    function openModal(index) {
-      const modal = document.getElementById("fullscreen-modal");
-      const img = document.getElementById("fullscreen-image");
-      img.src = projects[index].images[0];
-      modal.style.display = "flex";
-    }
+    projects.forEach(img => {
+      img.addEventListener('dblclick', () => {
+        overlayImg.src = img.src;
+        overlay.classList.add('active');
+      });
+    });
 
-    function closeModal() {
-      document.getElementById("fullscreen-modal").style.display = "none";
-    }
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>
