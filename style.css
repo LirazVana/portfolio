@@ -1,35 +1,45 @@
+/* הגדרת בסיס והגדלה של האתר כולו */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
   background-color: #111;
   color: #fff;
   transform: scale(2.5);
   transform-origin: top left;
-  width: 40%;
   overflow-x: hidden;
 }
 
 header {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2rem;
 }
 
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* גלריה בסגנון ArtStation */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 0 1vw 4vw;
-  max-width: 1600px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1000px;
   margin: auto;
 }
 
 .project {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
   overflow: hidden;
   cursor: pointer;
   border-radius: 8px;
-  transition: transform 0.3s ease;
 }
 
 .project img {
@@ -44,36 +54,55 @@ header {
   transform: scale(1.05);
 }
 
-.project h2 {
+/* כיתוב מעל תמונה בהובר */
+.overlay {
   position: absolute;
   bottom: 0;
-  width: 100%;
   background: rgba(0, 0, 0, 0.6);
-  margin: 0;
-  padding: 8px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
   font-size: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.project:hover h2 {
+.project:hover .overlay {
   opacity: 1;
 }
 
+/* תיבת התמונה המוגדלת */
 .fullscreen-modal {
-  display: none;
   position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
   align-items: center;
-  transform: scale(1); /* לא נושפע מהסקייל של האתר */
-  transform-origin: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 999;
+  transform: scale(1); /* לא מוגדל */
 }
 
 .fullscreen-modal img {
   max-width: 80vw;
   max-height: 80vh;
+  border-radius: 8px;
   object-fit: contain;
+  box-shadow: 0 0 20px #000;
+  transition: all 0.3s ease;
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  body {
+    transform: none;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
 }
