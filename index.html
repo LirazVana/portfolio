@@ -3,56 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Liraz Vana Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Liraz Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <h1>Liraz Vana</h1>
-    <p>3D Environment Artist</p>
+    <h1>Liraz Vana – 3D Portfolio</h1>
+    <p>Selected Projects</p>
   </header>
 
-  <div class="gallery">
-    <!-- עדכון נתיב התמונות בהתאם -->
-    <div class="project" onclick="openLightbox('portfolio/assets/gnome-shop/image.jpg')">
-      <img src="portfolio/assets/gnome-shop/image.jpg" alt="Gnome Shop">
+  <main class="gallery">
+    <div class="project">
+      <img src="portfolio/assets/gnome-shop/GnomeShop3.jpg" alt="Gnome Shop Project" />
     </div>
-    <div class="project" onclick="openLightbox('portfolio/assets/magic-shop/image.jpg')">
-      <img src="portfolio/assets/magic-shop/image.jpg" alt="Magic Shop">
+    <div class="project">
+      <img src="portfolio/assets/magic-shop/MagicShop1.jpg" alt="Magic Shop Project" />
     </div>
-    <div class="project" onclick="openLightbox('portfolio/assets/memoryscape/image.jpg')">
-      <img src="portfolio/assets/memoryscape/image.jpg" alt="Memoryscape">
+    <div class="project">
+      <img src="portfolio/assets/memoryscape/Memoryscape1.jpg" alt="Memoryscape Project" />
     </div>
-    <div class="project" onclick="openLightbox('portfolio/assets/oak/image.jpg')">
-      <img src="portfolio/assets/oak/image.jpg" alt="Oak">
+    <div class="project">
+      <img src="portfolio/assets/oak/Oak1.jpg" alt="Oak Project" />
     </div>
-    <div class="project" onclick="openLightbox('portfolio/assets/wasteland-vehicle/image.jpg')">
-      <img src="portfolio/assets/wasteland-vehicle/image.jpg" alt="Wasteland Vehicle">
+    <div class="project">
+      <img src="portfolio/assets/wasteland-vehicle/WastelandVehicle1.jpg" alt="Wasteland Vehicle Project" />
     </div>
-  </div>
+  </main>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="hidden" onclick="closeLightbox()">
-    <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="Enlarged Project">
-    </div>
-  </div>
-
-  <script>
-    function openLightbox(imageUrl) {
-      const lightbox = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      img.src = imageUrl;
-      lightbox.classList.remove('hidden');
-    }
-
-    function closeLightbox() {
-      const lightbox = document.getElementById('lightbox');
-      lightbox.classList.add('hidden');
-      document.getElementById('lightbox-img').src = '';
-    }
-  </script>
-
+  <script src="script.js"></script> <!-- אם יש לך JavaScript -->
 </body>
 </html>
