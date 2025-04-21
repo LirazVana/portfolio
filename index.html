@@ -14,48 +14,48 @@
 
   <main class="gallery">
     <div class="project">
-      <img src="assets/wasteland-vehicle/WastelandVehicle1.jpg" alt="Wasteland Vehicle" />
-      <div class="caption">Wasteland Vehicle</div>
+      <img src="wasteland-vehicle/WastelandVehicle1.jpg" alt="Wasteland Vehicle" />
+      <h2>Wasteland Vehicle</h2>
     </div>
     <div class="project">
-      <img src="assets/gnome-shop/GnomeShop3.jpg" alt="Gnome Shop" />
-      <div class="caption">Gnome Shop</div>
+      <img src="gnome-shop/GnomeShop3.jpg" alt="Gnome Shop" />
+      <h2>Gnome Shop</h2>
     </div>
     <div class="project">
-      <img src="assets/magic-shop/MagicShop1.jpg" alt="Magic Shop" />
-      <div class="caption">Magic Shop</div>
+      <img src="magic-shop/MagicShop1.jpg" alt="Magic Shop" />
+      <h2>Magic Shop</h2>
     </div>
     <div class="project">
-      <img src="assets/oak/Oak1.jpg" alt="Oak" />
-      <div class="caption">Oak</div>
+      <img src="oak/Oak1.jpg" alt="Oak" />
+      <h2>Oak</h2>
     </div>
     <div class="project">
-      <img src="assets/memoryscape/Memoryscape1.jpg" alt="Memoryscape" />
-      <div class="caption">Memoryscape</div>
+      <img src="memoryscape/Memoryscape1.jpg" alt="Memoryscape" />
+      <h2>Memoryscape</h2>
     </div>
   </main>
 
-  <div class="overlay" id="overlay">
-    <img id="overlay-img" src="" alt="Enlarged" />
-    <p class="double-click-hint">לחיצה על הרקע תסגור</p>
+  <!-- תיבת תמונה מוגדלת -->
+  <div class="fullscreen-modal" id="modal">
+    <img id="modal-img" src="" alt="Full View" />
   </div>
 
   <script>
-    const projects = document.querySelectorAll('.project img');
-    const overlay = document.getElementById('overlay');
-    const overlayImg = document.getElementById('overlay-img');
+    const projects = document.querySelectorAll(".project");
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
 
-    projects.forEach(img => {
-      img.addEventListener('dblclick', () => {
-        overlayImg.src = img.src;
-        overlay.classList.add('active');
+    projects.forEach(project => {
+      project.addEventListener("dblclick", () => {
+        const img = project.querySelector("img");
+        modalImg.src = img.src;
+        modal.style.display = "flex";
       });
     });
 
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.classList.remove('active');
-      }
+    modal.addEventListener("click", () => {
+      modal.style.display = "none";
+      modalImg.src = "";
     });
   </script>
 </body>
