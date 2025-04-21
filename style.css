@@ -21,15 +21,16 @@ header {
 
 .project {
   position: relative;
-  aspect-ratio: 1 / 1; /* ריבועים */
+  aspect-ratio: 1 / 1; /* ריבוע קבוע */
   overflow: hidden;
   cursor: pointer;
+  border-radius: 8px;
 }
 
 .project img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* חיתוך כמו ArtStation */
   display: block;
   transition: transform 0.3s ease;
 }
@@ -54,7 +55,7 @@ header {
   opacity: 1;
 }
 
-/* פופאפ – תמונה מוגדלת */
+/* תמונה מוגדלת במרכז המסך */
 .fullscreen-modal {
   display: none;
   position: fixed;
