@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,69 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Liraz Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
 </head>
 <body>
   <header>
-    <h1>Liraz Vana <span class="subtle">/ 3D Environment Artist</span></h1>
+    <h1>Liraz Vana – 3D Portfolio</h1>
+    <p>Double click on a project to view</p>
   </header>
 
   <main class="gallery">
-    <div class="project" onclick="openModal(0)">
+    <div class="project" ondblclick="openModal(0)">
       <img src="assets/wasteland-vehicle/WastelandVehicle1.jpg" alt="Wasteland Vehicle" />
       <h2>Wasteland Vehicle</h2>
     </div>
-    <div class="project" onclick="openModal(1)">
-      <img src="assets/gnome-shop/GnomeShop1.jpg" alt="Gnome Shop" />
+    <div class="project" ondblclick="openModal(1)">
+      <img src="assets/gnome-shop/GnomeShop3.jpg" alt="Gnome Shop" />
       <h2>Gnome Shop</h2>
     </div>
-    <div class="project" onclick="openModal(2)">
+    <div class="project" ondblclick="openModal(2)">
       <img src="assets/magic-shop/MagicShop1.jpg" alt="Magic Shop" />
       <h2>Magic Shop</h2>
     </div>
-    <div class="project" onclick="openModal(3)">
-      <img src="assets/oak/Oak1.jpg" alt="Oak" />
-      <h2>Oak</h2>
+    <div class="project" ondblclick="openModal(3)">
+      <img src="assets/oak/Oak1.jpg" alt="Oak Project" />
+      <h2>Oak Project</h2>
     </div>
-    <div class="project" onclick="openModal(4)">
+    <div class="project" ondblclick="openModal(4)">
       <img src="assets/memoryscape/Memoryscape1.jpg" alt="Memoryscape" />
       <h2>Memoryscape</h2>
     </div>
   </main>
 
+  <!-- פופאפ תמונה מוגדלת -->
   <div id="fullscreen-modal" class="fullscreen-modal" onclick="closeModal()">
-    <div style="text-align: center;">
-      <img id="fullscreen-image" src="" alt="Fullscreen View">
-      <p id="project-description" style="color: #aaa; margin-top: 1rem;">...</p>
-    </div>
+    <img id="fullscreen-image" src="" alt="Fullscreen View">
   </div>
 
   <script>
-    const descriptions = [
-      "רכב פוסט אפוקליפטי עם טקסטורות מותאמות.", 
-      "חנות גמדים קסומה עם תאורה דינאמית.",
-      "חנות קסמים רכה עם אווירת פנטזיה.",
-      "עץ עתיק עם דיטיילים טבעיים.",
-      "זכרונות מופשטים בסביבה סוריאליסטית."
+    const projects = [
+      { images: ['assets/wasteland-vehicle/WastelandVehicle1.jpg'] },
+      { images: ['assets/gnome-shop/GnomeShop3.jpg'] },
+      { images: ['assets/magic-shop/MagicShop1.jpg'] },
+      { images: ['assets/oak/Oak1.jpg'] },
+      { images: ['assets/memoryscape/Memoryscape1.jpg'] },
     ];
 
     function openModal(index) {
-      document.getElementById("fullscreen-modal").style.display = "flex";
-      document.getElementById("fullscreen-image").src = `assets/${projects[index].folder}/${projects[index].images[0]}`;
-      document.getElementById("project-description").textContent = descriptions[index];
+      const modal = document.getElementById("fullscreen-modal");
+      const img = document.getElementById("fullscreen-image");
+      img.src = projects[index].images[0];
+      modal.style.display = "flex";
     }
 
     function closeModal() {
       document.getElementById("fullscreen-modal").style.display = "none";
     }
-
-    const projects = [
-      { folder: 'wasteland-vehicle', images: ['WastelandVehicle1.jpg'] },
-      { folder: 'gnome-shop', images: ['GnomeShop1.jpg'] },
-      { folder: 'magic-shop', images: ['MagicShop1.jpg'] },
-      { folder: 'oak', images: ['Oak1.jpg'] },
-      { folder: 'memoryscape', images: ['Memoryscape1.jpg'] },
-    ];
   </script>
 </body>
 </html>
