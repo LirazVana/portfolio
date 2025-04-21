@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Liraz Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* CSS להגדרת תמונות מרובעות */
+    .gallery {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .project {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* זה משאיר את התמונה במרובע */
+      object-position: center; /* זה מוודא שהתמונה ממורכזת */
+    }
+  </style>
 </head>
 <body>
   <header>
