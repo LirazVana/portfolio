@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>Liraz Vana – 3D Portfolio</h1>
-    <p>Selected Projects</p>
+    <p>Double click on a project to view</p>
   </header>
 
   <main class="gallery">
@@ -35,38 +35,29 @@
     </div>
   </main>
 
-  <!-- פופאפ לתמונה מוגדלת -->
+  <!-- פופאפ תמונה מוגדלת -->
   <div id="fullscreen-modal" class="fullscreen-modal" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()"> <!-- עוצרים את הלחיצה על התמונה עצמה -->
-      <img id="fullscreen-image" src="" alt="Fullscreen Image" />
-    </div>
+    <img id="fullscreen-image" src="" alt="Fullscreen View">
   </div>
 
   <script>
-    // מערך של פרויקטים
     const projects = [
-      { name: 'Wasteland Vehicle', images: ['assets/wasteland-vehicle/WastelandVehicle1.jpg', 'assets/wasteland-vehicle/WastelandVehicle2.jpg'] },
-      { name: 'Gnome Shop', images: ['assets/gnome-shop/GnomeShop3.jpg', 'assets/gnome-shop/GnomeShop4.jpg'] },
-      { name: 'Magic Shop', images: ['assets/magic-shop/MagicShop1.jpg', 'assets/magic-shop/MagicShop2.jpg'] },
-      { name: 'Oak Project', images: ['assets/oak/Oak1.jpg'] },
-      { name: 'Memoryscape', images: ['assets/memoryscape/Memoryscape1.jpg', 'assets/memoryscape/Memoryscape2.jpg'] },
+      { images: ['assets/wasteland-vehicle/WastelandVehicle1.jpg'] },
+      { images: ['assets/gnome-shop/GnomeShop3.jpg'] },
+      { images: ['assets/magic-shop/MagicShop1.jpg'] },
+      { images: ['assets/oak/Oak1.jpg'] },
+      { images: ['assets/memoryscape/Memoryscape1.jpg'] },
     ];
 
-    let currentProjectIndex = 0;
-    let currentImageIndex = 0;
-
-    // פתיחת המודאל
     function openModal(index) {
-      const project = projects[index];
-      currentProjectIndex = index;
-      currentImageIndex = 0; // מתחילים עם התמונה הראשונה
-      document.getElementById('fullscreen-image').src = project.images[currentImageIndex];
-      document.getElementById('fullscreen-modal').style.display = 'flex';
+      const modal = document.getElementById("fullscreen-modal");
+      const img = document.getElementById("fullscreen-image");
+      img.src = projects[index].images[0];
+      modal.style.display = "flex";
     }
 
-    // סגירת המודאל
     function closeModal() {
-      document.getElementById('fullscreen-modal').style.display = 'none';
+      document.getElementById("fullscreen-modal").style.display = "none";
     }
   </script>
 </body>
