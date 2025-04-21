@@ -1,49 +1,71 @@
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f5f5;
+  padding: 0;
+  background: #f9f9f9;
   color: #333;
   text-align: center;
 }
 
 header {
-  background: #e8e8e8;
+  background: #222;
+  color: white;
   padding: 2rem 1rem;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
+h1 {
+  margin-bottom: 0.5rem;
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 20px;
   padding: 2rem;
 }
 
 .project {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 220px;
+  height: 220px;
+  position: relative;
   overflow: hidden;
-  width: 250px;
-  transition: transform 0.3s;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .project:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03);
 }
 
 .project img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-.project h2 {
-  margin: 0;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
   padding: 1rem;
-  font-size: 1.1rem;
+  text-align: center;
 }
+
+.project:hover .overlay {
+  opacity: 1;
+}
+
