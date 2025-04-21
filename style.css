@@ -1,93 +1,64 @@
-/* Reset בסיסי */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
-  padding: 20px;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 10px;
-}
-
-.project {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  aspect-ratio: 1 / 1; /* תמונה מרובעת */
-}
-
-.project:hover {
-  transform: scale(1.02);
-}
+/* (הוספתי את הקוד הבא לשמור על עיצוב יפה) */
 
 .project img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer; /* כל תמונה תהיה לחיצה */
 }
 
-.project h2 {
-  position: absolute;
-  bottom: 0;
+/* שלב הצפייה המוגדלת */
+.fullscreen-modal {
+  display: none;
+  position: fixed;
+  top: 0;
   left: 0;
-  right: 0;
-  margin: 0;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-size: 1.2rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
 }
 
-.project:hover h2 {
-  opacity: 1;
+.fullscreen-modal img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
 }
 
-/* רספונסיביות */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
+.fullscreen-modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
 
-  .gallery {
-    gap: 20px;
-  }
+.fullscreen-modal .arrow {
+  position: absolute;
+  top: 50%;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 2000;
+}
 
-  .project h2 {
-    font-size: 1rem;
-    padding: 10px;
-  }
+.fullscreen-modal .arrow.left {
+  left: 20px;
+}
+
+.fullscreen-modal .arrow.right {
+  right: 20px;
+}
+
+.fullscreen-modal .text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
