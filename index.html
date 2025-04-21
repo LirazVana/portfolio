@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Liraz Portfolio</title>
+  <title>Liraz Vana – Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,49 +13,58 @@
   </header>
 
   <main class="gallery">
-    <div class="project" data-title="Wasteland Vehicle">
+    <div class="project" data-img="assets/wasteland-vehicle/WastelandVehicle1.jpg" data-title="Wasteland Vehicle">
       <img src="assets/wasteland-vehicle/WastelandVehicle1.jpg" alt="Wasteland Vehicle" />
+      <div class="overlay">Wasteland Vehicle</div>
     </div>
-    <div class="project" data-title="Gnome Shop">
+    <div class="project" data-img="assets/gnome-shop/GnomeShop3.jpg" data-title="Gnome Shop">
       <img src="assets/gnome-shop/GnomeShop3.jpg" alt="Gnome Shop" />
+      <div class="overlay">Gnome Shop</div>
     </div>
-    <div class="project" data-title="Magic Shop">
+    <div class="project" data-img="assets/magic-shop/MagicShop1.jpg" data-title="Magic Shop">
       <img src="assets/magic-shop/MagicShop1.jpg" alt="Magic Shop" />
+      <div class="overlay">Magic Shop</div>
     </div>
-    <div class="project" data-title="Oak">
+    <div class="project" data-img="assets/oak/Oak1.jpg" data-title="Oak">
       <img src="assets/oak/Oak1.jpg" alt="Oak" />
+      <div class="overlay">Oak</div>
     </div>
-    <div class="project" data-title="Memoryscape">
+    <div class="project" data-img="assets/memoryscape/Memoryscape1.jpg" data-title="Memoryscape">
       <img src="assets/memoryscape/Memoryscape1.jpg" alt="Memoryscape" />
+      <div class="overlay">Memoryscape</div>
     </div>
   </main>
 
-  <div id="lightbox" class="hidden" onclick="hideLightbox(event)">
-    <img id="lightbox-img" src="" alt="Enlarged Project" />
-    <div class="lightbox-caption"></div>
+  <div id="lightbox" class="hidden">
+    <div class="lightbox-content">
+      <img src="" alt="Enlarged Project" />
+      <div class="lightbox-caption"></div>
+    </div>
   </div>
 
   <script>
     const projects = document.querySelectorAll('.project');
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const lightboxImg = lightbox.querySelector('img');
+    const caption = lightbox.querySelector('.lightbox-caption');
 
     projects.forEach(project => {
       project.addEventListener('dblclick', () => {
-        const img = project.querySelector('img');
-        lightboxImg.src = img.src;
-        lightboxCaption.textContent = project.getAttribute('data-title') + ' – Double-click image to enlarge';
+        const imgSrc = project.getAttribute('data-img');
+        const title = project.getAttribute('data-title');
+        lightboxImg.src = imgSrc;
+        caption.textContent = title;
         lightbox.classList.remove('hidden');
       });
     });
 
-    function hideLightbox(e) {
-      if (e.target.id === 'lightbox' || e.target.id === 'lightbox-img') {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
         lightbox.classList.add('hidden');
         lightboxImg.src = '';
+        caption.textContent = '';
       }
-    }
+    });
   </script>
 </body>
 </html>
