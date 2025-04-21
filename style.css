@@ -6,34 +6,48 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f8f8;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
   color: #333;
-  line-height: 1.6;
+  padding: 1rem;
 }
 
 header {
   text-align: center;
-  padding: 2rem 1rem;
+  margin-bottom: 2rem;
 }
 
+header h1 {
+  font-size: 2rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Gallery */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 1rem 5vw;
-  max-width: 1600px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .project {
   position: relative;
 }
 
+/* Image Style */
 .image-container {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: pointer;
   aspect-ratio: 1 / 1;
 }
 
@@ -41,24 +55,24 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease, filter 0.5s ease;
 }
 
+/* Hover Effect */
 .image-container:hover img {
   transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
+/* Overlay */
 .overlay {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-  color: #fff;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
