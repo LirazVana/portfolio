@@ -5,16 +5,16 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0e0e0e;
-  color: white;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
   line-height: 1.6;
-  padding: 2rem 1rem;
 }
 
 header {
   text-align: center;
-  margin-bottom: 3rem;
+  padding: 2rem 1rem;
+  background-color: #1a1a1a;
 }
 
 header h1 {
@@ -24,25 +24,25 @@ header h1 {
 
 header p {
   font-size: 1.2rem;
-  color: #ccc;
+  color: #aaa;
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  width: 100%;
-  max-width: 100%;
-  padding: 0 1rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
 }
 
 .project {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1; /* גורם לכל התמונות להיות ריבועיות */
+  border-radius: 8px;
+  transition: transform 0.3s;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
 .project img {
@@ -61,11 +61,13 @@ header p {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  margin: 0;
   padding: 1rem;
   background: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: #fff;
   font-size: 1.2rem;
+  text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -74,7 +76,16 @@ header p {
   opacity: 1;
 }
 
-/* Optional: Add small shadow */
-.project {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .gallery {
+    padding: 0 1rem;
+  }
+
+  .project h2 {
+    font-size: 1rem;
+  }
 }
