@@ -1,76 +1,28 @@
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   background-color: #111;
   color: #fff;
-}
-
-header {
-  text-align: center;
-  padding: 2rem 1rem;
 }
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
-  padding: 0 1vw 4vw; /* רווח קטן יותר בצדדים */
-  margin: auto;
-  max-width: 100vw;
-}
-
-.project {
-  position: relative;
-  aspect-ratio: 1 / 1; /* ריבוע קבוע */
-  overflow: hidden;
-  cursor: pointer;
-  border-radius: 6px;
-  background-color: #222;
-}
-
-.project img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* חיתוך כמו ArtStation */
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.project:hover img {
-  transform: scale(1.05);
-}
-
-.project h2 {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
+  padding: 0;
   margin: 0;
-  padding: 8px;
-  font-size: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
-.project:hover h2 {
-  opacity: 1;
-}
-
-/* תמונה מוגדלת במרכז המסך */
-.fullscreen-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.fullscreen-modal img {
-  max-width: 80vw;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(255,255,255,0.1);
+.gallery img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  border-radius: 4px;
 }
